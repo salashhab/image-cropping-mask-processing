@@ -31,9 +31,52 @@ This repository contains a Python function for cropping a region of interest (RO
   - Perimeter (in micrometers)
   - Rotation angle (in degrees)
 
+### Example Code
+
+Here’s an example of how you can use the `process_and_crop_image_with_mask` function:
+
+```python
+from your_repository import process_and_crop_image_with_mask
+
+# Example inputs
+image_bytes = open('your_image.png', 'rb').read()
+coordinates = {'x': 50, 'y': 100, 'width': 200, 'height': 150}
+mask_data = [0, 1, 0, 1, 1, 0, 0, ...]  # Example mask data (same size as the cropped region)
+target_size = 350
+
+# Run the function
+processed_image, measurements = process_and_crop_image_with_mask(image_bytes, coordinates, mask_data, target_size)
+
+# Save the processed image
+with open('processed_image.png', 'wb') as f:
+    f.write(processed_image)
+
+# Print the measurements
+for label in ['Width (px)', 'Height (px)', 'Width (µm)', 'Height (µm)', 'Perimeter (px)', 'Perimeter (µm)', 'Angle (°)']:
+    print(f"{label}: {measurements.pop(0)}")
+
 ## Installation
 
 To use this repository, ensure you have the following dependencies installed:
 
 ```bash
 pip install numpy opencv-python pillow
+
+
+### License
+
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+Copyright (c) [year] [your name or organization]
+
+You are free to:
+- Share: Copy and redistribute the material in any medium, format, or platform.
+- Adapt: Remix, transform, and build upon the material for any purpose, even commercially.
+- The licensor cannot revoke these freedoms as long as you follow the license terms.
+
+Under the following terms:
+- Attribution: You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+- No additional restrictions: You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
+
+Full details at: https://creativecommons.org/licenses/by/4.0/
+
