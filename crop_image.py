@@ -10,7 +10,7 @@ def image_to_bytes(img):
     Image.fromarray(img.astype(np.uint8)).save(buf, format="PNG")
     return buf.getvalue()
 
-def process_and_crop_image_with_mask(image_bytes, coordinates=None, mask_data=None, target_size=350): 
+def process_and_crop_image(image_bytes, coordinates=None, mask_data=None, target_size=350): 
     # Open image and convert to numpy array
     image = Image.open(BytesIO(image_bytes)).convert("RGB")
     image = np.array(image)
