@@ -12,7 +12,7 @@ This repository contains a Python function for cropping a region of interest (RO
 
 ## Function Usage
 
-### `process_and_crop_image_with_mask(image_bytes, coordinates=None, mask_data=None, target_size=350)`
+### `process_and_crop_image(image_bytes, coordinates=None, mask_data=None, target_size=350)`
 
 #### Parameters:
 - `image_bytes` (bytes): The image data in byte format.
@@ -36,7 +36,7 @@ This repository contains a Python function for cropping a region of interest (RO
 Here’s an example of how you can use the `process_and_crop_image_with_mask` function:
 
 ```python
-from your_repository import process_and_crop_image_with_mask
+from your_repository import process_and_crop_image
 
 # Example inputs
 image_bytes = open('your_image.png', 'rb').read()
@@ -55,19 +55,22 @@ with open('processed_image.png', 'wb') as f:
 for label in ['Width (px)', 'Height (px)', 'Width (µm)', 'Height (µm)', 'Perimeter (px)', 'Perimeter (µm)', 'Angle (°)']:
     print(f"{label}: {measurements.pop(0)}")
 
-## Installation
+
+```
+
+### Installation
 
 To use this repository, ensure you have the following dependencies installed:
 
 ```bash
 pip install numpy opencv-python pillow
-
+```
 
 ### License
 
 Creative Commons Attribution 4.0 International (CC BY 4.0)
 
-Copyright (c) [year] [your name or organization]
+Copyright (c) [2025] [Samer Alashhab]
 
 You are free to:
 - Share: Copy and redistribute the material in any medium, format, or platform.
